@@ -7,6 +7,7 @@ import edu.westga.cs1302.pantry_system.model.Food;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -28,6 +29,17 @@ public class MainWindow {
     @FXML
     private TextField entry;
     
+    @FXML
+    private Button theButton;
+    
+    @FXML
+    private void handleButtonClick() {
+    	addButton(entry.getText(),foodTypes.getTypeSelector());
+    	
+    	pantry.setItems(FXCollections.observableArrayList(list));
+    	pantry.refresh();
+    }
+    
     private static ObservableList<Food> list = FXCollections.observableArrayList();
  
 
@@ -36,11 +48,13 @@ public class MainWindow {
     	assert entry != null : "fx:id=\"entry\" was not injected: check your FXML file 'MainWindow.fxml'.";
         assert foodTypes != null : "fx:id=\"foodTypes\" was not injected: check your FXML file 'MainWindow.fxml'.";
         assert pantry != null : "fx:id=\"pantry\" was not injected: check your FXML file 'MainWindow.fxml'.";
+        assert theButton != null : "fx:id=\"theButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
         
         foodTypes.setItems(FXCollections.observableArrayList("Vegetable", "Meat", "Bread", "Fruit", "Dessert","Ingredient"));
         pantry.setItems(FXCollections.observableArrayList(list));
         
         
+            
         
         }
     /**

@@ -73,7 +73,7 @@ public class Food {
 	 */
 	public String toString() {
 		
-		return getName() + ": " + Integer.toString(getQuantity());
+		return this.getName() + "-" + Integer.toString(getQuantity());
 	}
 
 }
