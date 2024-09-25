@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="458.0" minWidth="600.0" prefHeight="642.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.pantry_system.view.MainWindow">
+<AnchorPane fx:id="removeButton" minHeight="458.0" minWidth="600.0" prefHeight="642.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.pantry_system.view.MainWindow">
    <children>
       <Label layoutX="128.0" layoutY="126.0" text="Enter food name" />
       <TextField fx:id="entry" layoutX="128.0" layoutY="143.0" />
@@ -21,5 +21,6 @@
       <Button fx:id="minusButton" layoutX="371.0" layoutY="321.0" mnemonicParsing="false" onAction="#minusButton" text="-" />
       <Button fx:id="enterButton" layoutX="300.0" layoutY="199.0" mnemonicParsing="false" onAction="#handleEntryButtonClick" text="Enter" />
       <Button fx:id="plusButton" layoutX="369.0" layoutY="269.0" mnemonicParsing="false" onAction="#plusButton" text="+" />
+      <Button layoutX="356.0" layoutY="399.0" mnemonicParsing="false" text="Remove" />
    </children>
 </AnchorPane>

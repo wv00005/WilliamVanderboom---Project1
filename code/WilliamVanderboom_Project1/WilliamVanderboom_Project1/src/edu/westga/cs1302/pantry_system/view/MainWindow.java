@@ -41,6 +41,9 @@ public class MainWindow {
 
 	@FXML
 	private Button plusButton;
+	
+	@FXML
+	private Button removeButton;
 
 	@FXML
 	private TextField numberEntry;
@@ -73,6 +76,10 @@ public class MainWindow {
 		this.pantryListView.getItems().setAll(this.pantry.getPantry());
 
 		pantryListView.refresh();
+	}
+	
+	private void handleRemoveButton() {
+		
 	}
 
 	@FXML
@@ -127,6 +134,8 @@ public class MainWindow {
 		this.pantryListView.getItems().setAll(this.pantry.getPantry());
 		this.pantryListView.refresh();
 	}
+	
+	
 
 
 
