@@ -6,7 +6,7 @@ public class Food {
 	
 	private final String type;
 	
-	private int quantity;
+	public int quantity;
 	
 	/**
 	 * initializes name, type, and quantity
@@ -60,7 +60,7 @@ public class Food {
 	 * @return the number of Food
 	 */
 	public int getQuantity() {
-		return quantity;
+		return this.quantity;
 	}
 	
 	/**
@@ -71,8 +71,8 @@ public class Food {
 	 * 
 	 * @param quantity
 	 */
-	public void setQuantity(int quantity) {
-		quantity = this.quantity;
+	public void setQuantity(int num) {
+		this.quantity = num;
 		
 	}
 	/**
@@ -82,7 +82,7 @@ public class Food {
 	 * @postcondition none
 	 */
 	public void plusQuantity() {
-		quantity ++;
+		this.quantity++;
 	}
 	
 	/**
@@ -92,7 +92,7 @@ public class Food {
 	 * postcondition none
 	 */
 	public void minusQuantity() {
-		quantity --;
+		this.quantity--;
 	}
 	
 	/**
