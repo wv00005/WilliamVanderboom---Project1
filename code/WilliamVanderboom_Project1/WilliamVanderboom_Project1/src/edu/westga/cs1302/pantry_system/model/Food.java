@@ -6,7 +6,7 @@ public class Food {
 	
 	private final String type;
 	
-	private final int quantity;
+	private int quantity;
 	
 	/**
 	 * initializes name, type, and quantity
@@ -61,6 +61,38 @@ public class Food {
 	 */
 	public int getQuantity() {
 		return quantity;
+	}
+	
+	/**
+	 * sets the quantity of Food to the input
+	 * 
+	 * @precondition this.quantity must be initialized
+	 * @postcondition none
+	 * 
+	 * @param quantity
+	 */
+	public void setQuantity(int quantity) {
+		quantity = this.quantity;
+		
+	}
+	/**
+	 * increments quantity by one
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 */
+	public void plusQuantity() {
+		quantity ++;
+	}
+	
+	/**
+	 * decrements the quantity
+	 * 
+	 * precondition none
+	 * postcondition none
+	 */
+	public void minusQuantity() {
+		quantity --;
 	}
 	
 	/**
