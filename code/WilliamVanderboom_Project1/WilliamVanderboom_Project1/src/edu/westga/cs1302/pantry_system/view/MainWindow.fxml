@@ -10,10 +10,10 @@
 <AnchorPane minHeight="458.0" minWidth="600.0" prefHeight="642.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.pantry_system.view.MainWindow">
    <children>
       <Label layoutX="128.0" layoutY="126.0" text="Enter food name" />
-      <TextField layoutX="128.0" layoutY="143.0" />
+      <TextField fx:id="entry" layoutX="128.0" layoutY="143.0" />
       <Label layoutX="328.0" layoutY="126.0" text="Select food type" />
-      <ComboBox layoutX="328.0" layoutY="143.0" prefWidth="150.0" />
-      <ListView layoutX="128.0" layoutY="231.0" prefHeight="200.0" prefWidth="200.0" />
+      <ComboBox fx:id="foodTypes" layoutX="328.0" layoutY="143.0" prefWidth="150.0" promptText="Types" />
+      <ListView fx:id="pantry" layoutX="128.0" layoutY="231.0" prefHeight="200.0" prefWidth="200.0" />
       <Label layoutX="128.0" layoutY="214.0" text="Pantry" />
       <Button layoutX="524.0" layoutY="143.0" mnemonicParsing="false" text="Add" />
    </children>

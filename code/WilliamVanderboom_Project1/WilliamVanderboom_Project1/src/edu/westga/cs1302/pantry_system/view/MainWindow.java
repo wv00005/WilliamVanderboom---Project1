@@ -1,46 +1,76 @@
- package edu.westga.cs1302.pantry_system.view;
+package edu.westga.cs1302.pantry_system.view;
 
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import edu.westga.cs1302.pantry_system.model.Food;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+public class MainWindow {
 
-import edu.westga.cs1302.pantry_system.Main;
-import javafx.application.Application;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
+    @FXML
+    private ResourceBundle resources;
 
-public class MainWindow extends Application {
-	
-	
-	public static final String WINDOW_TITLE = "Sample JavaFX Project";
-	
-	public ObservableList<String> pantry;
-	public ObservableList<String> foodTypes;
-	
-	/**
-	 * 
-	 */
-	public void start(Stage primaryStage){
-		
-		  ListView<String> listView = new ListView(pantry);
-		  
-		  TextField textField = new TextField();
-		  
-		  ComboBox<String> types = new ComboBox();
-		  foodTypes.addAll("");
-		  
-		  
-		  
-		  
-		
-	}
+    @FXML
+    private URL location;
+
+    @FXML
+    private ComboBox<String> foodTypes;
+    
+    @FXML
+    private ListView<Food> pantry;
+    
+    @FXML
+    private TextField entry;
+    
+    private static ObservableList<Food> list = FXCollections.observableArrayList();
+ 
+
+    @FXML
+    void initialize() {
+    	assert entry != null : "fx:id=\"entry\" was not injected: check your FXML file 'MainWindow.fxml'.";
+        assert foodTypes != null : "fx:id=\"foodTypes\" was not injected: check your FXML file 'MainWindow.fxml'.";
+        assert pantry != null : "fx:id=\"pantry\" was not injected: check your FXML file 'MainWindow.fxml'.";
+        
+        foodTypes.setItems(FXCollections.observableArrayList("Vegetable", "Meat", "Bread", "Fruit", "Dessert","Ingredient"));
+        pantry.setItems(FXCollections.observableArrayList(list));
+        
+        
+        
+        }
+    /**
+     * adds the given Food name and type to the ListView pantry
+     * 
+     * @precondition type and name cannot be null or empty
+     * type has to be from the ComboBox foodTypes
+     * @postcondition none
+     * 
+     * 
+     */
+    public static void addButton(String name,String type) throws IllegalArgumentException {
+    	if (name == null) {
+    		throw new IllegalArgumentException("Name cannot be null");
+    	}
+    	if (name == "") {
+    		throw new IllegalArgumentException("Name cannot be empty");
+    	}
+    	
+    	Food food = new Food(name,type);
+    	
+    	
+    	list.add(food);
+    		
+    	
+    }
+    
+    
+    
+    
+    
+
 }
