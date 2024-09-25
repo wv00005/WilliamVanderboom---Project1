@@ -13,8 +13,13 @@
       <TextField fx:id="entry" layoutX="128.0" layoutY="143.0" />
       <Label layoutX="328.0" layoutY="126.0" text="Select food type" />
       <ComboBox fx:id="foodTypes" layoutX="328.0" layoutY="143.0" prefWidth="150.0" promptText="Types" />
-      <ListView fx:id="pantry" layoutX="128.0" layoutY="231.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label layoutX="128.0" layoutY="214.0" text="Pantry" />
+      <ListView fx:id="pantry" layoutX="128.0" layoutY="269.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="128.0" layoutY="252.0" text="Pantry" />
       <Button fx:id="theButton" layoutX="524.0" layoutY="143.0" mnemonicParsing="false" onAction="#handleButtonClick" text="Add" />
+      <Label layoutX="128.0" layoutY="182.0" text="Enter food quantity" />
+      <TextField layoutX="128.0" layoutY="199.0" />
+      <Button layoutX="277.0" layoutY="199.0" mnemonicParsing="false" text="-" />
+      <Button layoutX="300.0" layoutY="199.0" mnemonicParsing="false" text="Enter" />
+      <Button layoutX="346.0" layoutY="199.0" mnemonicParsing="false" text="+" />
    </children>
 </AnchorPane>

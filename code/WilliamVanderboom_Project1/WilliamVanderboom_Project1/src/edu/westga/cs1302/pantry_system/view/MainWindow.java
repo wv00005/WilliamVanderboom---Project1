@@ -30,7 +30,19 @@ public class MainWindow {
     private TextField entry;
     
     @FXML
-    private Button theButton;
+    private Button addButton;
+    
+    @FXML
+    private Button enterButton;
+    
+    @FXML
+    private Button minusButton;
+    
+    @FXML
+    private Button plusButton;
+    
+    @FXML
+    private TextField numberEntry;
     
     @FXML
     private void handleButtonClick() {
@@ -48,7 +60,7 @@ public class MainWindow {
     	assert entry != null : "fx:id=\"entry\" was not injected: check your FXML file 'MainWindow.fxml'.";
         assert foodTypes != null : "fx:id=\"foodTypes\" was not injected: check your FXML file 'MainWindow.fxml'.";
         assert pantry != null : "fx:id=\"pantry\" was not injected: check your FXML file 'MainWindow.fxml'.";
-        assert theButton != null : "fx:id=\"theButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
+        assert addButton != null : "fx:id=\"theButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
         
         foodTypes.setItems(FXCollections.observableArrayList("Vegetable", "Meat", "Bread", "Fruit", "Dessert","Ingredient"));
         pantry.setItems(FXCollections.observableArrayList(list));
