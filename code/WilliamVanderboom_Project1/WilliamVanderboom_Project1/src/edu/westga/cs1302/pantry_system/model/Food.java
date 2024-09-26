@@ -1,6 +1,10 @@
 package edu.westga.cs1302.pantry_system.model;
 
+//import edu.westga.cs1302.pantry_system.model.Pantry;
+
 public class Food {
+	
+	private static Pantry pantry;
 	
 	private final String name;
 	
@@ -95,6 +99,13 @@ public class Food {
 		this.quantity--;
 	}
 	
+	public static int countQuantity() {
+		int total = 0;
+		for (Food currentFood : pantry.getPantry()) {
+			total+=currentFood.getQuantity();
+		}
+		return total;
+	}
 	
 	/**
 	 * concatenates the name and quantity using getName and getQuantity
