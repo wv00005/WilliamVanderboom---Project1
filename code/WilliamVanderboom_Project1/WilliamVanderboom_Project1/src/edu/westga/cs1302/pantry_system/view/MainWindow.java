@@ -1,5 +1,6 @@
 package edu.westga.cs1302.pantry_system.view;
 
+//import java.awt.Label;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -8,10 +9,14 @@ import edu.westga.cs1302.pantry_system.model.Food;
 import edu.westga.cs1302.pantry_system.model.Pantry;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.scene.control.Label;
 
 public class MainWindow {
 
@@ -41,10 +46,10 @@ public class MainWindow {
 
 	@FXML
 	private Button plusButton;
-	
+
 	@FXML
 	private Button removeButton;
-	
+
 	@FXML
 	private Button countButton;
 
@@ -58,7 +63,7 @@ public class MainWindow {
 		String foodName = entry.getText();
 		String foodType = foodTypes.getValue();
 		Food food = new Food(foodName, foodType);
-		
+
 		this.pantry.addFood(food);
 		this.pantryListView.getItems().add(food);
 
@@ -80,7 +85,7 @@ public class MainWindow {
 
 		pantryListView.refresh();
 	}
-	
+
 	@FXML
 	private void handleRemoveButton() {
 		Food food = pantryListView.getSelectionModel().getSelectedItem();
@@ -91,31 +96,50 @@ public class MainWindow {
 				unwantedFoods.add(food);
 			}
 		}
-		
-		for (Food currentFood: unwantedFoods) {
+
+		for (Food currentFood : unwantedFoods) {
 			this.pantry.removeFood(currentFood);
 			this.pantryListView.getItems().remove(currentFood);
 		}
-		
 
 		this.pantryListView.getItems().setAll(this.pantry.getPantry());
-		
-		
+
 		this.pantryListView.refresh();
 	}
-	
+
 	@FXML
 	private void handleCountButton() {
-		
+
+		Stage popupStage = new Stage();
+
+		AnchorPane anchorPane = new AnchorPane();
+
+		Label label = new Label("Food Quantity: ");
+		AnchorPane.setTopAnchor(label, 10.0);
+		AnchorPane.setLeftAnchor(label, 10.0);
+		anchorPane.getChildren().add(label);
+
+		Scene popupScene = new Scene(anchorPane, 200, 100);
+		popupStage.setScene(popupScene);
+		popupStage.setTitle("Pantry Total");
+		popupStage.show();
+
 	}
-	
 
 	@FXML
 	void initialize() {
+		assert addButton != null : "fx:id=\"addButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert countButton != null : "fx:id=\"countButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert enterButton != null : "fx:id=\"enterButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
 		assert entry != null : "fx:id=\"entry\" was not injected: check your FXML file 'MainWindow.fxml'.";
 		assert foodTypes != null : "fx:id=\"foodTypes\" was not injected: check your FXML file 'MainWindow.fxml'.";
-		assert pantryListView != null : "fx:id=\"pantry\" was not injected: check your FXML file 'MainWindow.fxml'.";
-		assert addButton != null : "fx:id=\"theButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert minusButton != null : "fx:id=\"minusButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert numberEntry != null : "fx:id=\"numberEntry\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert pantryListView != null
+				: "fx:id=\"pantryListView\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert plusButton != null : "fx:id=\"plusButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert removeButton != null
+				: "fx:id=\"removeButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
 
 		foodTypes.setItems(
 				FXCollections.observableArrayList("Vegetable", "Meat", "Bread", "Fruit", "Dessert", "Ingredient"));
@@ -162,9 +186,5 @@ public class MainWindow {
 		this.pantryListView.getItems().setAll(this.pantry.getPantry());
 		this.pantryListView.refresh();
 	}
-	
-	
-
-
 
 }
