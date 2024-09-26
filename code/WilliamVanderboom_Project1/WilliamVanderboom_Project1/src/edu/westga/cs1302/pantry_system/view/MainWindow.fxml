@@ -22,5 +22,6 @@
       <Button fx:id="enterButton" layoutX="300.0" layoutY="199.0" mnemonicParsing="false" onAction="#handleEntryButtonClick" text="Enter" />
       <Button fx:id="plusButton" layoutX="369.0" layoutY="269.0" mnemonicParsing="false" onAction="#plusButton" text="+" />
       <Button fx:id="removeButton" layoutX="356.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleRemoveButton" text="Remove" />
+      <Button fx:id="countButton" layoutX="478.0" layoutY="257.0" mnemonicParsing="false" onAction="#handleCountButton" text="Total Quantity of Food" />
    </children>
 </AnchorPane>

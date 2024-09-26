@@ -44,6 +44,9 @@ public class MainWindow {
 	
 	@FXML
 	private Button removeButton;
+	
+	@FXML
+	private Button countButton;
 
 	@FXML
 	private TextField numberEntry;
@@ -99,6 +102,11 @@ public class MainWindow {
 		
 		
 		this.pantryListView.refresh();
+	}
+	
+	@FXML
+	private void handleCountButton() {
+		
 	}
 	
 
