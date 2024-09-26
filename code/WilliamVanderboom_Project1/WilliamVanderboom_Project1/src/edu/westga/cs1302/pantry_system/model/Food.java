@@ -2,6 +2,12 @@ package edu.westga.cs1302.pantry_system.model;
 
 //import edu.westga.cs1302.pantry_system.model.Pantry;
 
+/**
+ * contains the Food constructor and quantity methods
+ * 
+ * @author wv00005
+ * @version fall 2024
+ */
 public class Food {
 
 	private static Pantry pantry;
@@ -10,13 +16,13 @@ public class Food {
 
 	private final String type;
 
-	public int quantity;
+	private int quantity;
 
 	/**
 	 * initializes name, type, and quantity
 	 * 
-	 * @param name
-	 * @param type
+	 * @param name the string type that is the name of the Food
+	 * @param type the string type that is the name of the FoodType
 	 * 
 	 * @precondition name, quantity, and type are defined
 	 * @postcondition name = this.name; type = this.type; quantity = 0\
@@ -24,7 +30,7 @@ public class Food {
 	 */
 	public Food(String name, String type) {
 
-		quantity = 0;
+		this.quantity = 0;
 
 		this.name = name;
 		this.type = type;
@@ -73,7 +79,7 @@ public class Food {
 	 * @precondition this.quantity must be initialized
 	 * @postcondition none
 	 * 
-	 * @param quantity
+	 * @param num the integer type that represents the food quantity number
 	 */
 	public void setQuantity(int num) {
 		this.quantity = num;
@@ -98,7 +104,15 @@ public class Food {
 	public void minusQuantity() {
 		this.quantity--;
 	}
-
+	
+	/**
+	 * counts the total quantity of food in the pantry list
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return a string value of the name and quantity
+	 */
 	public static int countQuantity() {
 		int total = 0;
 		for (Food currentFood : pantry.getPantry()) {
@@ -116,8 +130,7 @@ public class Food {
 	 * @return a string value of the name and quantity
 	 */
 	public String toString() {
-
-		return this.getName() + "-" + Integer.toString(getQuantity());
+		return this.getName() + "-" + Integer.toString(this.getQuantity());
 	}
 
 }

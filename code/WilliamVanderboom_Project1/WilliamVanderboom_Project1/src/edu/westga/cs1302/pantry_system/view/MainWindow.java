@@ -18,6 +18,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 
+/**
+ * Stores and initializes all of the fxml codebehind
+ * 
+ * @author wv00005
+ * @version Fall 2024
+ * 
+ */
 public class MainWindow {
 
 	@FXML
@@ -60,20 +67,20 @@ public class MainWindow {
 
 	@FXML
 	private void handleAddButtonClick() {
-		String foodName = entry.getText();
-		String foodType = foodTypes.getValue();
+		String foodName = this.entry.getText();
+		String foodType = this.foodTypes.getValue();
 		Food food = new Food(foodName, foodType);
 
 		this.pantry.addFood(food);
 		this.pantryListView.getItems().add(food);
 
-		pantryListView.refresh();
+		this.pantryListView.refresh();
 	}
 
 	@FXML
 	private void handleEntryButtonClick() {
-		int num = Integer.parseInt(numberEntry.getText());
-		Food food = pantryListView.getSelectionModel().getSelectedItem();
+		int num = Integer.parseInt(this.numberEntry.getText());
+		Food food = this.pantryListView.getSelectionModel().getSelectedItem();
 
 		for (Food currentItem : this.pantry.getPantry()) {
 			if (currentItem == food) {
@@ -83,12 +90,12 @@ public class MainWindow {
 
 		this.pantryListView.getItems().setAll(this.pantry.getPantry());
 
-		pantryListView.refresh();
+		this.pantryListView.refresh();
 	}
 
 	@FXML
 	private void handleRemoveButton() {
-		Food food = pantryListView.getSelectionModel().getSelectedItem();
+		Food food = this.pantryListView.getSelectionModel().getSelectedItem();
 		ArrayList<Food> unwantedFoods = new ArrayList<Food>();
 
 		for (Food currentItem : this.pantry.getPantry()) {
@@ -128,20 +135,20 @@ public class MainWindow {
 
 	@FXML
 	void initialize() {
-		assert addButton != null : "fx:id=\"addButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
-		assert countButton != null : "fx:id=\"countButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
-		assert enterButton != null : "fx:id=\"enterButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
-		assert entry != null : "fx:id=\"entry\" was not injected: check your FXML file 'MainWindow.fxml'.";
-		assert foodTypes != null : "fx:id=\"foodTypes\" was not injected: check your FXML file 'MainWindow.fxml'.";
-		assert minusButton != null : "fx:id=\"minusButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
-		assert numberEntry != null : "fx:id=\"numberEntry\" was not injected: check your FXML file 'MainWindow.fxml'.";
-		assert pantryListView != null
+		assert this.addButton != null : "fx:id=\"addButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert this.countButton != null : "fx:id=\"countButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert this.enterButton != null : "fx:id=\"enterButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert this.entry != null : "fx:id=\"entry\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert this.foodTypes != null : "fx:id=\"foodTypes\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert this.minusButton != null : "fx:id=\"minusButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert this.numberEntry != null : "fx:id=\"numberEntry\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert this.pantryListView != null
 				: "fx:id=\"pantryListView\" was not injected: check your FXML file 'MainWindow.fxml'.";
-		assert plusButton != null : "fx:id=\"plusButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
-		assert removeButton != null
+		assert this.plusButton != null : "fx:id=\"plusButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert this.removeButton != null
 				: "fx:id=\"removeButton\" was not injected: check your FXML file 'MainWindow.fxml'.";
 
-		foodTypes.setItems(
+		this.foodTypes.setItems(
 				FXCollections.observableArrayList("Vegetable", "Meat", "Bread", "Fruit", "Dessert", "Ingredient"));
 
 		this.pantry = new Pantry();
@@ -155,7 +162,7 @@ public class MainWindow {
 	 * @postcondition none
 	 */
 	public void plusButton() {
-		Food food = pantryListView.getSelectionModel().getSelectedItem();
+		Food food = this.pantryListView.getSelectionModel().getSelectedItem();
 
 		for (Food currentItem : this.pantry.getPantry()) {
 			if (currentItem == food) {
@@ -175,7 +182,7 @@ public class MainWindow {
 	 */
 	public void minusButton() {
 
-		Food food = pantryListView.getSelectionModel().getSelectedItem();
+		Food food = this.pantryListView.getSelectionModel().getSelectedItem();
 
 		for (Food currentItem : this.pantry.getPantry()) {
 			if (currentItem == food) {
