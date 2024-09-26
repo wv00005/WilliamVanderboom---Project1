@@ -99,7 +99,8 @@ public class Food {
 	/**
 	 * decrements the quantity
 	 * 
-	 * precondition none postcondition none
+	 * @precondition none 
+	 * @postcondition none
 	 */
 	public void minusQuantity() {
 		this.quantity--;
