@@ -1,12 +1,12 @@
 package edu.westga.cs1302.pantry_system.view;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import edu.westga.cs1302.pantry_system.model.Food;
 import edu.westga.cs1302.pantry_system.model.Pantry;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -78,9 +78,29 @@ public class MainWindow {
 		pantryListView.refresh();
 	}
 	
+	@FXML
 	private void handleRemoveButton() {
+		Food food = pantryListView.getSelectionModel().getSelectedItem();
+		ArrayList<Food> unwantedFoods = new ArrayList<Food>();
+
+		for (Food currentItem : this.pantry.getPantry()) {
+			if (currentItem == food) {
+				unwantedFoods.add(food);
+			}
+		}
 		
+		for (Food currentFood: unwantedFoods) {
+			this.pantry.removeFood(currentFood);
+			this.pantryListView.getItems().remove(currentFood);
+		}
+		
+
+		this.pantryListView.getItems().setAll(this.pantry.getPantry());
+		
+		
+		this.pantryListView.refresh();
 	}
+	
 
 	@FXML
 	void initialize() {

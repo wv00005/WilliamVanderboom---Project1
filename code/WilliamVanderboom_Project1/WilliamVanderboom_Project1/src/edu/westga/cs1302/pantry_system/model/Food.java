@@ -95,6 +95,7 @@ public class Food {
 		this.quantity--;
 	}
 	
+	
 	/**
 	 * concatenates the name and quantity using getName and getQuantity
 	 * 

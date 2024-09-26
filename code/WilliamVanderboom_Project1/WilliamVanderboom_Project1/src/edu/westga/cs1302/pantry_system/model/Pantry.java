@@ -28,6 +28,13 @@ public class Pantry {
 		pantryList.add(food);
 	}
 	
+	public void removeFood(Food food) throws IllegalArgumentException {
+		if (food == null) {
+			throw new IllegalArgumentException("Food cannot be null");
+		}
+		pantryList.remove(food);
+	}
+	
 	public ArrayList<Food> getPantry(){
 		return this.pantryList;
 	}
