@@ -1,0 +1,146 @@
+commit a5c200dc57bcce21e4cb76acf8637ec5ffd3ecae
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Thu Sep 26 03:24:46 2024 -0400
+
+    Added some test cases
+
+commit 24073cf3b492cc1d2e83c744ec9ad413a23ee64a
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Thu Sep 26 02:45:53 2024 -0400
+
+    Checkstyle
+    
+    fixed alot of checkstyle issues
+
+commit 5d70925abc6ce729e0c34becdfa132139da6f9ee
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Thu Sep 26 02:12:16 2024 -0400
+
+    Connect Business Logic and UI for Updating Quantity of Food in Pantry
+    
+    also did some minor formatting
+
+commit 8f130105eaeddc441e8c2d3cc536b2136a3cfc0d
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Wed Sep 25 23:36:11 2024 -0400
+
+    Business Logic for Counting Pantry
+    
+    adds the countQuantity method in Food.java
+
+commit f150a8fcfc60b611dff05fae4b2c1bcbec2e9941
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Wed Sep 25 23:01:16 2024 -0400
+
+    mplementing UI for Counting Pantry
+    
+    adds a fxml method for countButton
+
+commit 137bf45ac1be2f3adfefc870326632e24eb2956d
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Wed Sep 25 22:16:10 2024 -0400
+
+    RemoveFoodLogic
+    
+    adds the handleRemoveButton method to remove an item from the listview
+
+commit 98adf6536e663fc9919585ef4ef39f5186027da1
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Wed Sep 25 18:59:34 2024 -0400
+
+    Added  UI for Removing Food
+
+commit b0441ad52eaa24aa5dd27bdd35c2e5c9d034aac4
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Wed Sep 25 18:35:00 2024 -0400
+
+    Added Pantry class to connect the UI for the quantity
+
+commit 604062d3420b81f00cf96af46e4e576c95fa74d2
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Wed Sep 25 14:18:07 2024 -0400
+
+     Business Logic for Updating Quantity of Food in Pantry
+
+commit 721cd108ec60f1894c98d2913275bff1cda2f446
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Wed Sep 25 14:01:12 2024 -0400
+
+     Implementing UI
+
+commit af130f5fb08895ee1a84171f48b58e45fe5de51a
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Wed Sep 25 12:53:51 2024 -0400
+
+    Removed redundant code
+
+commit e4501ea23434360b21e9c4c4e0f0bb660583941e
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Wed Sep 25 12:20:08 2024 -0400
+
+     Connect UI to Business Logic for Adding Food
+
+commit 1212eacd4896c956653384fe79732af275291697
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Wed Sep 25 00:26:16 2024 -0400
+
+    Adding Food
+
+commit d3d4d6519c1265559394bc31df9c6d6352b0f06a
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Tue Sep 24 17:48:39 2024 -0400
+
+    Adds the Scene Builder
+
+commit 036aa2be825dd1919de1b84974e976ac4289b310
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Mon Sep 23 23:45:02 2024 -0400
+
+    Adds the Food class
+
+commit 86ff684e612e8c4fa87d7a0326d9f0c08e951161
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Fri Sep 20 17:23:21 2024 -0400
+
+    Update README.md
+
+commit 7facef7a71286bf1b053cb4c57e6353c78d3118b
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Wed Sep 18 18:07:17 2024 -0400
+
+    Add the feature-SaferDataClass
+
+commit a1df2a05419c0ddb2e33694e882c6236b6637506
+Merge: 9458bae 5f88b63
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Sun Sep 15 20:21:17 2024 -0400
+
+    Merge branch 'main' of https://github.com/wv00005/WilliamVanderboom---lab3
+
+commit 5f88b63c0246dde27aefcf74be2c457424850b34
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Sun Sep 15 19:09:02 2024 -0400
+
+    Update README.md
+    
+    Updating the name
+
+commit 9458baee4abd5e06e954b25ed62ee0459f6bc1c3
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Thu Sep 12 16:26:18 2024 -0400
+
+    Adds the Bill project to the lab
+
+commit 1dcf24b6712f32a233f407996bbb8418a3dcf367
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Thu Sep 12 00:22:15 2024 -0400
+
+    Update lab decription
+    
+    my attempt at lab3
+
+commit a325b649faf9b92f3fa7ea2912aef2deb4a5ad54
+Author: wv00005 <wv00005@my.westga.edu>
+Date:   Wed Sep 11 22:53:11 2024 -0400
+
+    Initial commit
