@@ -1,5 +1,7 @@
 package edu.westga.cs1302.bill.model;
 
+import java.util.ArrayList;
+
 /**
  * Manages a set of BillItems.
  * 
@@ -8,19 +10,41 @@ package edu.westga.cs1302.bill.model;
  */
 public class Bill {
 	public static final int MAX_NUMBER_OF_ITEMS = 3;
-	private BillItem[] items;
+	private ArrayList<BillItem> items;
 	private int size;
+	private String serverName;
 
 	/**
-	 * Create a new empty Bill
-	 * 
-	 * @precondition none
-	 * @postcondition none
-	 * 
+	 * Create a new empty Bill with no server set
 	 */
 	public Bill() {
-		this.items = new BillItem[Bill.MAX_NUMBER_OF_ITEMS];
-		this.size = 0;
+		this.serverName = "No Server Set";
+		this.items = new ArrayList<BillItem>();
+	}
+	
+	/** Return the server name for the bill
+	 * 
+	 * @return the server name for the bill
+	 */
+	public String getServerName() {
+		return this.serverName;
+	}
+
+	/** Sets the server name for the bill
+	 * 
+	 * @precondition name != null && !name.isEmpty()
+	 * @postcondition getServerName() == name
+	 * 
+	 * @param name the name of the server for the bill
+	 */
+	public void setServerName(String name) {
+		if (name == null) {
+			throw new IllegalArgumentException("name must not be null.");
+		}
+		if (name.isEmpty()) {
+			throw new IllegalArgumentException("name must not be empty.");
+		}
+		this.serverName = name;
 	}
 
 	/**
@@ -38,8 +62,7 @@ public class Bill {
 		if (this.size == Bill.MAX_NUMBER_OF_ITEMS) {
 			throw new IllegalStateException("bill items list is full");
 		}
-		this.items[this.size] = item;
-		this.size++;
+		this.items.add(item);
 	}
 	
 	/** Return the number of items in the bill
@@ -47,7 +70,7 @@ public class Bill {
 	 * @return the number of items in the bill
 	 */
 	public int getSize() {
-		return this.size;
+		return this.items.size();
 	}
 
 	/**
@@ -56,49 +79,7 @@ public class Bill {
 	 * @return the items in the bill
 	 */
 	public BillItem[] getItems() {
-		return this.items;
-	}
-
-	/**
-	 * Return the subtotal for the bill
-	 * 
-	 * @return the subtotal for the bill
-	 */
-	public double getSubTotal() {
-		double subTotal = 0.0;
-		for (BillItem item : this.items) {
-			if (item != null) {
-				subTotal += item.getAmount();
-			}
-		}
-		return subTotal;
-	}
-
-	/**
-	 * Return the tax for the bill
-	 * 
-	 * @return the tax for the bill
-	 */
-	public double getTax() {
-		return this.getSubTotal() * 0.1;
-	}
-
-	/**
-	 * Return the tip for the bill
-	 * 
-	 * @return the tip for the bill
-	 */
-	public double getTip() {
-		return this.getSubTotal() * 0.2;
-	}
-
-	/**
-	 * Return the total for the bill
-	 * 
-	 * @return the total for the bill
-	 */
-	public double getTotal() {
-		return this.getSubTotal() + this.getTax() + this.getTip();
+		return this.items.toArray(new BillItem[this.items.size()]);
 	}
 
 }
