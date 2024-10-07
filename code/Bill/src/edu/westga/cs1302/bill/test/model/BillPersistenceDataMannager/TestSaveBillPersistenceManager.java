@@ -45,8 +45,8 @@ public class TestSaveBillPersistenceManager {
 		File inputFile = new File(BillPersistenceManager.DATA_FILE);
 		try (Scanner reader = new Scanner(inputFile)){
 			assertEquals("Bob",reader.nextLine());
-			assertEquals("chris,5.25",reader.nextLine());
 			assertEquals("5.25,0.525,1.05,6.825",reader.nextLine());
+			assertEquals("chris,5.25",reader.nextLine());
 			assertFalse(reader.hasNextLine());
 		}
 				
@@ -67,10 +67,10 @@ public class TestSaveBillPersistenceManager {
 		File inputFile = new File(BillPersistenceManager.DATA_FILE);
 		try (Scanner reader = new Scanner(inputFile)){
 			assertEquals("Bob",reader.nextLine());
+			assertEquals("23.0,2.3,4.6,29.9",reader.nextLine());
 			assertEquals("chris,5.0",reader.nextLine());
 			assertEquals("john,10.0",reader.nextLine());
 			assertEquals("evan,8.0",reader.nextLine());
-			assertEquals("23.0,2.3,4.6,29.9",reader.nextLine());
 			assertFalse(reader.hasNextLine());
 		}
 				
