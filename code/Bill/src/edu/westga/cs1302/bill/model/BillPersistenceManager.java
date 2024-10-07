@@ -25,11 +25,17 @@ public class BillPersistenceManager {
 	 */
 	public static void saveBillData(Bill bill) throws IOException {
 		try (FileWriter writer = new FileWriter(DATA_FILE)) {
-			writer.write(bill.getServerName() + ",");
+			if (bill != null) {
+				writer.write(bill.getServerName() + System.lineSeparator());
+			} else {
+				throw new IllegalArgumentException("Bill cannot be null");
+			}
+			
 			BillItem[] billItems = bill.getItems();
 			for (BillItem currBill : billItems) {
-				writer.write(currBill.getName() + "," + currBill.getAmount() + BillCalculator.getSubTotal(billItems) + "," + BillCalculator.getTax(billItems) + "," + BillCalculator.getTip(billItems) + (",") + BillCalculator.getTotal(billItems) + System.lineSeparator());
+				writer.write(currBill.getName() + "," + currBill.getAmount() + System.lineSeparator());
 			}
+			writer.write(BillCalculator.getSubTotal(billItems) + "," + BillCalculator.getTax(billItems) + "," + BillCalculator.getTip(billItems) + (",") + BillCalculator.getTotal(billItems));
 		}
 	}
 
