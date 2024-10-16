@@ -1,10 +1,10 @@
 package edu.westga.cs1302.bill.view;
 
 import java.io.IOException;
-
 import edu.westga.cs1302.bill.model.Bill;
 import edu.westga.cs1302.bill.model.BillItem;
 import edu.westga.cs1302.bill.model.BillPersistenceManager;
+import edu.westga.cs1302.bill.model.CSVBillPersistenceManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -29,6 +29,8 @@ public class MainWindow {
 	private TextArea receiptArea;
 	@FXML
 	private ComboBox<String> serverName;
+	@FXML
+	private ComboBox<BillPersistenceManager> format;
 
 	@FXML
 	void addItem(ActionEvent event) {
@@ -61,11 +63,17 @@ public class MainWindow {
 	@FXML
 	void saveBillData(ActionEvent event) {
 		try {
-			BillPersistenceManager.saveBillData(this.bill);
+			//BillItem[] billItems = this.bill.getItems();
+			this.format.getValue().saveBillData(this.bill);
 		} catch (IOException writeError) {
 			this.displayErrorPopup("Unable to save data to file!");
 		}
 	}
+	
+	 @FXML
+	    void changeFormat(ActionEvent event) {
+	    	this.saveBillData(event);
+	    }
 
 	private void displayErrorPopup(String message) {
 		Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -75,10 +83,16 @@ public class MainWindow {
 
 	@FXML
 	void initialize() {
+		assert this.format != null : "fx:id=\"format\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		 
+		this.format.getItems().add(new CSVBillPersistenceManager());
+		//this.format.getItems().add(new TSVBillDataPersistenceManager());
+		this.format.setValue(this.format.getItems().get(0));
+		
 		this.serverName.getItems().add("Bob");
 		this.serverName.getItems().add("Alice");
 		this.serverName.getItems().add("Trudy");
-		this.bill = BillPersistenceManager.loadBillData();
+		this.bill = this.format.getValue().loadBillData();
 		this.updateReceipt();
 	}
 }
