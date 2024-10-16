@@ -5,6 +5,7 @@ import edu.westga.cs1302.bill.model.Bill;
 import edu.westga.cs1302.bill.model.BillItem;
 import edu.westga.cs1302.bill.model.BillPersistenceManager;
 import edu.westga.cs1302.bill.model.CSVBillPersistenceManager;
+import edu.westga.cs1302.bill.model.TSVBillPersistenceManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -86,7 +87,7 @@ public class MainWindow {
 		assert this.format != null : "fx:id=\"format\" was not injected: check your FXML file 'MainWindow.fxml'.";
 		 
 		this.format.getItems().add(new CSVBillPersistenceManager());
-		//this.format.getItems().add(new TSVBillDataPersistenceManager());
+		this.format.getItems().add(new TSVBillPersistenceManager());
 		this.format.setValue(this.format.getItems().get(0));
 		
 		this.serverName.getItems().add("Bob");

@@ -1,2 +1,3 @@
 Alice
-TEst,22.0
+TEst	22.0
+chris	7.0
