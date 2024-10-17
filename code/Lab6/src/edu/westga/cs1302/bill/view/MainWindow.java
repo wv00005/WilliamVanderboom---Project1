@@ -1,7 +1,10 @@
 package edu.westga.cs1302.bill.view;
 
 import java.io.IOException;
+import java.util.Comparator;
+
 import edu.westga.cs1302.bill.model.Bill;
+import edu.westga.cs1302.bill.model.BillAscendingBillComparator;
 import edu.westga.cs1302.bill.model.BillItem;
 import edu.westga.cs1302.bill.model.BillPersistenceManager;
 import edu.westga.cs1302.bill.model.CSVBillPersistenceManager;
@@ -32,6 +35,8 @@ public class MainWindow {
 	private ComboBox<String> serverName;
 	@FXML
 	private ComboBox<BillPersistenceManager> format;
+	@FXML
+	private ComboBox<Comparator<BillItem>> order;
 
 	@FXML
 	void addItem(ActionEvent event) {
@@ -89,6 +94,8 @@ public class MainWindow {
 		this.format.getItems().add(new CSVBillPersistenceManager());
 		this.format.getItems().add(new TSVBillPersistenceManager());
 		this.format.setValue(this.format.getItems().get(0));
+		
+		this.order.getItems().add(new BillAscendingBillComparator());
 		
 		this.serverName.getItems().add("Bob");
 		this.serverName.getItems().add("Alice");
