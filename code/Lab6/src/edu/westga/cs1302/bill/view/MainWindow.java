@@ -1,10 +1,13 @@
 package edu.westga.cs1302.bill.view;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 import edu.westga.cs1302.bill.model.Bill;
 import edu.westga.cs1302.bill.model.BillAscendingBillComparator;
+import edu.westga.cs1302.bill.model.BillDescendingBillComparator;
 import edu.westga.cs1302.bill.model.BillItem;
 import edu.westga.cs1302.bill.model.BillPersistenceManager;
 import edu.westga.cs1302.bill.model.CSVBillPersistenceManager;
@@ -56,6 +59,14 @@ public class MainWindow {
 	private void updateReceipt() {
 		this.receiptArea.setText(BillTextifier.getText(this.bill));
 	}
+	
+	@FXML
+	void changeOrder(ActionEvent event) {
+		List<BillItem> items = Arrays.asList(this.bill.getItems());
+		items.sort(this.order.getValue());
+		//BillItem item = new BillItem();
+		this.updateReceipt();
+	}
 
 	@FXML
 	void selectServer(ActionEvent event) {
@@ -89,13 +100,18 @@ public class MainWindow {
 
 	@FXML
 	void initialize() {
+		//System.out.println("Format: " + this.format);
+		//System.out.println("Order: " + this.order);
 		assert this.format != null : "fx:id=\"format\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert this.order != null : "fx:id=\"order\" was not injected: check your FXML file 'MainWindow.fxml'.";
 		 
 		this.format.getItems().add(new CSVBillPersistenceManager());
 		this.format.getItems().add(new TSVBillPersistenceManager());
 		this.format.setValue(this.format.getItems().get(0));
 		
 		this.order.getItems().add(new BillAscendingBillComparator());
+		this.order.getItems().add(new BillDescendingBillComparator());
+		this.order.setValue(this.order.getItems().get(0));
 		
 		this.serverName.getItems().add("Bob");
 		this.serverName.getItems().add("Alice");
